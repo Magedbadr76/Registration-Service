@@ -15,7 +15,7 @@ pipeline {
                 sshPublisher(publishers: [
                     sshPublisherDesc(configName: 'staging', transfers: [
                         sshTransfer(execCommand: 'rm /app/Genesys/apache-tomcat-8.5.70/webapps/Registeration-service-0.0.1-SNAPSHOT.war' ,
-                                    execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/app/Genesys/apache-tomcat-8.5.70/webapps', remoteDirectorySDF: false, removePrefix: 'target', sourceFiles: 'target/*.war',cleanRemote: true)
+                                    execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/app/Genesys/apache-tomcat-8.5.70/webapps', remoteDirectorySDF: false, removePrefix: 'target', sourceFiles: 'target/*.war')
                     ])
                 ])
             }
