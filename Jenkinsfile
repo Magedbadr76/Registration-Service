@@ -14,7 +14,8 @@ pipeline {
                 // Use the Publish Over SSH plugin to transfer the JAR file to the deployment server
                 sshPublisher(publishers: [
                     sshPublisherDesc(configName: 'staging', transfers: [
-                        sshTransfer(execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/app/Genesys/apache-tomcat-8.5.70/webapps', remoteDirectorySDF: false, removePrefix: 'target', sourceFiles: 'target/*.war',cleanRemote: true)
+                        sshTransfer(execCommand: 'rm /app/Genesys/apache-tomcat-8.5.70/webapps/Registeration-service-0.0.1-SNAPSHOT.war',
+                                    execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/app/Genesys/apache-tomcat-8.5.70/webapps', remoteDirectorySDF: false, removePrefix: 'target', sourceFiles: 'target/*.war',cleanRemote: true)
                     ])
                 ])
             }
