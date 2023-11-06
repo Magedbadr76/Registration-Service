@@ -28,7 +28,7 @@ UserService userService;
 	public String register(@RequestBody User user)
 	{
 		userService.register(user);
-		return "The user: "+user.getName() + " registered successfully...!";
+		return "The user: "+user.getName() + " registered successfully...!Updated!";
 	}
 	
 	@PostMapping("/createUser")
