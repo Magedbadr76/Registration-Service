@@ -11,6 +11,14 @@ pipeline {
         }
         stage('Deploy') {
             steps {
+
+                // Use SSH to remove the existing JAR file
+        sshCommand(
+            remote: 'staging',
+            command: "rm /app/Genesys/apache-tomcat-8.5.70/webapps/Registeration-service-0.0.1-SNAPSHOT.war"
+        )
+
+                
                 // Use the Publish Over SSH plugin to transfer the JAR file to the deployment server
                 sshPublisher(publishers: [
                     sshPublisherDesc(configName: 'staging', transfers: [
