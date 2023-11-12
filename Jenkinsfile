@@ -10,15 +10,7 @@ pipeline {
             }
         }
 
-  stage('Clean') {
-        steps {
-            // Use SSH to remove the existing WAR file
-            sshCommand(
-                remote: 'staging',
-                command: "rm /app/Genesys/apache-tomcat-8.5.70/webapps/Registeration-service-0.0.1-SNAPSHOT.war"
-            )
-        }
-    }
+  
         
         stage('Deploy') {
              when {
@@ -36,6 +28,16 @@ pipeline {
                 ])
             }
         }
+
+        stage('Clean') {
+        steps {
+            // Use SSH to remove the existing WAR file
+            sshCommand(
+                remote: 'staging',
+                command: "rm /app/Genesys/apache-tomcat-8.5.70/webapps/Registeration-service-0.0.1-SNAPSHOT.war"
+            )
+        }
+    }
 
         
     }
