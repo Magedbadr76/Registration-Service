@@ -10,8 +10,12 @@ pipeline {
             }
         }
         stage('Deploy') {
+             when {
+                branch 'main'
+            }
             steps {
-
+               input 'Does the staging environment look OK?'
+                milestone(1)
                 // Use the Publish Over SSH plugin to transfer the JAR file to the deployment server
                 sshPublisher(publishers: [
                     sshPublisherDesc(configName: 'staging', transfers: [
