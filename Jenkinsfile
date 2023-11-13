@@ -17,6 +17,7 @@ pipeline {
                 branch 'main'
             }
             steps {
+                //Use below line to ask before proceeding to deploy, you need to hoover on deploy box to proceed.
                input 'Does the staging environment look OK?'
                 milestone(1)
                 // Use the Publish Over SSH plugin to transfer the JAR file to the deployment server
