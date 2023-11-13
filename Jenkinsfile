@@ -35,6 +35,8 @@ pipeline {
             // Use SSH to remove the existing WAR file
             sshCommand(
                 remote: 'staging',
+                //you might want to add || true to the rm command in the 'Clean' stage to prevent the Jenkins step from being marked as failed 
+                //Ex.  command: "rm /app/Genesys/apache-tomcat-8.5.70/webapps/Registeration-service-0.0.1-SNAPSHOT.war || true"
                 command: "rm /app/Genesys/apache-tomcat-8.5.70/webapps/Registeration-service-0.0.1-SNAPSHOT.war"
             )
         }
